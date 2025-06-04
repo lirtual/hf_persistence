@@ -1,0 +1,78 @@
+# =============================================================================
+# 数据持久化单文件脚本配置文件示例
+# =============================================================================
+
+# 核心配置 - 必需设置
+# 请取消注释并设置以下变量
+# HF_TOKEN="your_huggingface_token_here"
+# DATASET_ID="your_username/your_dataset_name"
+
+# 归档路径配置
+# 要归档的路径，支持多个路径用逗号分隔
+# 支持相对路径和绝对路径
+ARCHIVE_PATHS="data"
+
+# 恢复路径配置
+# 归档文件将被解压到此路径
+RESTORE_PATH="./"
+
+# 同步配置
+# 自动同步间隔（秒）
+SYNC_INTERVAL=7200
+
+# 最大归档文件数量
+MAX_ARCHIVES=5
+
+# 压缩级别 (1-9, 9为最高压缩)
+COMPRESSION_LEVEL=6
+
+# 文件配置
+# 归档文件前缀
+ARCHIVE_PREFIX="backup"
+
+# 归档文件扩展名
+ARCHIVE_EXTENSION="tar.gz"
+
+# 排除模式，用逗号分隔
+# 支持 shell 通配符模式
+EXCLUDE_PATTERNS="*.log,*.tmp,__pycache__,.git,node_modules,.DS_Store"
+
+# 应用配置
+# 主应用启动命令
+APP_COMMAND="python main.py"
+
+# 功能开关
+# 启用自动恢复
+ENABLE_AUTO_RESTORE=true
+
+# 启用自动同步
+ENABLE_AUTO_SYNC=true
+
+# 日志配置
+# 日志文件路径
+LOG_FILE="/tmp/persistence.log"
+
+# 日志级别 (DEBUG, INFO, WARN, ERROR)
+LOG_LEVEL="INFO"
+
+# =============================================================================
+# 使用示例
+# =============================================================================
+
+# 1. 复制此文件为 persistence.conf
+# cp persistence.conf.example persistence.conf
+
+# 2. 编辑配置文件，设置 HF_TOKEN 和 DATASET_ID
+# nano persistence.conf
+
+# 3. 运行脚本
+# ./persistence.sh start
+
+# =============================================================================
+# 环境变量方式配置
+# =============================================================================
+
+# 也可以通过环境变量设置配置：
+# export HF_TOKEN="your_token"
+# export DATASET_ID="username/dataset"
+# ./persistence.sh start
