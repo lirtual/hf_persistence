@@ -2,14 +2,14 @@
 
 set -e
 
-echo "=== Resilio Sync with Persistence Startup ==="
+echo "=== Persistence Startup ==="
 
 # 日志函数
 log() {
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] $*"
 }
 
-log "Starting Resilio Sync with Persistence support..."
+log "Starting Persistence support..."
 
 # 检查是否配置了持久化
 if [[ -n "$HF_TOKEN" && -n "$DATASET_ID" ]]; then
